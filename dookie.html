@@ -31,7 +31,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-  <title>The Bulletin Board</title>
+  <title>BookBay</title>
   </head>
 
   <body ng-app = "bulletinapp" >
@@ -45,7 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">The Bulletin Board</a>
+          <a class="navbar-brand" href="#">BookBay</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right" role="form" >
@@ -67,22 +67,22 @@
 			</li>
 			<li ng-class="{active:t.isSelected(2)}" role="presentation">
 				<a href ng-click="t.setTab(2)">
-					Art/Music
+					Inbox
 				</a>
 			</li>
 			<li ng-class="{active:t.isSelected(3)}" role ng-click="tabs.setTab(3)">
 				<a href ng-click="t.setTab(3)">
-					Tech
+					Cart
 				</a>
 			</li>
 			<li ng-class="{active:t.isSelected(4)}" role="presentation">
 				<a href ng-click="t.setTab(4)">
-					Food
+					Recommendations
 				</a>
 			</li>
 			<li ng-class="{active:t.isSelected(5)}" role="presentation">
 				<a href ng-click="t.setTab(5)">
-					Park
+					Settings
 				</a>
 			</li>
 
