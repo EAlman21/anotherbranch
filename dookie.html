@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 
-<link href="signin.css" rel="stylesheet">
+	<link href="signin.css" rel="stylesheet">
 
     <script type="text/javascript" src="angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
@@ -31,111 +31,117 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-  <title>BookBay</title>
+  	<title>BookBay</title>
   </head>
 
-  <body ng-app = "bulletinapp" >
-<div ng-controller = "klock as l">
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">BookBay</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" role="form" >
-            <button type="submit" class="btn btn-success" ng-click = "l.toggle()" ><div ng-hide = "l.login_page" >Log in/Sign up</div> <div ng-show = "l.login_page">Back</div></button>
-          </form>
-        </div><!--/.navbar-collapse -->
-      </div>
-    </nav>
-	<br />
-	<br />
-	<br />
+  <!-- Body-->
+  <body ng-app = "BookStoreApp" >
+	<div ng-controller = "TogglePage as l">
 
-		<div ng-controller="tabs as t" ng-hide = "l.login_page">
-		<ul class="nav nav-tabs" role="tablist" >
-			<li ng-class="{active:t.isSelected(1)}" role="presentation">
-				<a href ng-click="t.setTab(1)">
-					Home
-				</a>
-			</li>
-			<li ng-class="{active:t.isSelected(2)}" role="presentation">
-				<a href ng-click="t.setTab(2)">
-					Inbox
-				</a>
-			</li>
-			<li ng-class="{active:t.isSelected(3)}" role ng-click="tabs.setTab(3)">
-				<a href ng-click="t.setTab(3)">
-					Cart
-				</a>
-			</li>
-			<li ng-class="{active:t.isSelected(4)}" role="presentation">
-				<a href ng-click="t.setTab(4)">
-					Recommendations
-				</a>
-			</li>
-			<li ng-class="{active:t.isSelected(5)}" role="presentation">
-				<a href ng-click="t.setTab(5)">
-					Settings
-				</a>
-			</li>
+	<!-- Suggest add a header class to contain logo/"brand name", navigation bar, search bar, login/register button-->
+	    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"> <!-- navigation bar???? -->
+	      <div class="container"> <!-- container: for a responsive fixed width container 
+			Different uses:
+				container: (fixed width)
+				container-fluid: (full-width)
+	      -->
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span> 
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="#">BookBay</a>
 
-	
-		</ul>
-	<br />
-	
-	    <div ng-show="t.isSelected(1)">
-		tab1
-	   </div>
-			
-	 
-	    <div  ng-show="t.isSelected(2)">
-		tab2
-	    </div>	
+	        </div> <!-- /.navbar-header-->
 
-	    <div ng-show="t.isSelected(3)">
-		tab3
-	    </div>
+			<!-- Up-Right Corner's button, clickable and use for login/signup. TODO: add cart here too.-->
+	        <div id="navbar" class="navbar-collapse collapse">
+	          <form class="navbar-form navbar-right" role="form" >
+	            <button type="submit" class="btn btn-success" ng-click = "l.toggle()" >
+	            	<!-- Very interesting, when click on login/signup. it hide and back button show-->
+	            	<div ng-hide = "l.login_page" >Log in/Sign up</div>
+	            	<div ng-show = "l.login_page">Back</div>
+	            </button>
+	          </form>
+	        </div><!--/.navbar-collapse -->      
+	      </div><!-- /.container-->
+	    </nav><!-- Close: navbar-->
 
-	    <div ng-show="t.isSelected(4)">
-		tab4   
-	    </div>
+		<div ng-show = "l.login_page"> <!-- Login_page -->
+		    <div class="container"> <!-- container for login_page -->
+		      <form class="form-signin" role="form"> <!-- form-->
+		      	<h2 class="form-signin-heading">Please sign in</h2>
+		        <!--Input email for sign in -->
+		        <label for="inputEmail" class="sr-only">
+		        	Email address
+		        </label>
+		        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+				<!--Input password for sign in -->
+		        <label for="inputPassword" class="sr-only">
+		        	Password
+		        </label>
+		        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		        <!-- Checkbox for remember sign in information. TODO: need functionality to support-->
+		        <div class="checkbox">
+		          <label>
+		            <input type="checkbox" value="remember-me"> 
+		            Remember me
+		          </label>
+		        </div>
+		        <!--Button for sign in -->
+		        <button class="btn btn-lg btn-primary btn-block" type="submit">
+		        	Sign in
+		        </button>
+		        <!--Button for Register a new account -->
+				<button class="btn btn-lg btn-primary btn-block" type="submit">
+					Sign up
+				</button>
+		      </form> <!--/form -->
+		    </div> <!-- /container -->
+		</div> <!-- /l.login_page -->
 
-	    <div  ng-show="t.isSelected(5)">
-		tab5
-	    </div>
+		<br/>
+		<br/>
+		<br/>
+		<br/>		
+		<!-- NaviBar:Tab -->
+		<div ng-controller="NavTab as t" ng-hide = "l.login_page">
+			<!-- Tab List -->
+			<ul class="nav nav-tabs" role="tablist" >
+				<!-- L1: Home -->
+				<li ng-class="{active:t.isSelected(1)}" role="presentation">
+					<a href ng-click="t.setTab(1)"> Home </a>
+				</li>
+				<!-- L2: Buy Books -->
+				<li ng-class="{active:t.isSelected(2)}" role="presentation">
+					<a href ng-click="t.setTab(2)">	Buy Books </a>
+				</li>
+				<!-- L3: Sell a Book -->
+				<li ng-class="{active:t.isSelected(3)}" role ng-click="tabs.setTab(3)">
+					<a href ng-click="t.setTab(3)">	Sell a Book</a>
+				</li>
+				<!-- L4: I'm Feeling Lucky -->
+				<li ng-class="{active:t.isSelected(4)}" role="presentation">
+					<a href ng-click="t.setTab(4)">	I'm Feeling Lucky </a>
+				</li>
+				<!-- L5: Settings -->
+				<li ng-class="{active:t.isSelected(5)}" role="presentation">
+					<a href ng-click="t.setTab(5)">	Settings </a>
+				</li>
+			</ul>
 
-	</div>
-
-	<div ng-show = "l.login_page">
-
-	
-    <div class="container">
-
-      <form class="form-signin" role="form">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-	<button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
-      </form>
-
-    </div> <!-- /container -->
-	</div>
+			<!-- Display all list containing material.  TODO: repeat loop through -->
+		    <div ng-show="t.isSelected(1)">
+		    	<h2> Top Rating</h2>
+					
+		    </div>
+		    <div ng-show="t.isSelected(2)"> tab2 </div>
+		    <div ng-show="t.isSelected(3)">	tab3 </div>
+		    <div ng-show="t.isSelected(4)">	tab4 </div>
+		    <div ng-show="t.isSelected(5)"> tab5 </div>
 		</div>
-
+	</div>
   </body>
 </html>
