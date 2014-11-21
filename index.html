@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  	<title>BookBay</title>
+    <style>
+        .divScroll {
+            overflow:scroll;
+            height:500px;
+            width:800px;
+        }
+    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link href="signin.css" rel="stylesheet">
+
+  </head>
+
+  <!-- Body-->
+  <body ng-app = "BookStoreApp" >
+	<div ng-controller = "TogglePage as l">
+
+	    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"> 
+	      <div class="container-fluid">
+
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span> 
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+
+	          <a class="navbar-brand" href="#">BookBay</a>
+		<!--this defines the search bar-->
+		<form action="" class="navbar-form">
+		    <div class="col-lg-6 "> <!--this expands the width of the search bar--> 
+    		        <div class="input-group col-lg-10">
+                            <input type="text" class="form-control">
+                            <div class="input-group-btn">
+			<!--defines the action for drop down search--> 
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Search <span class="caret"></span></button>
+                                <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                    <li><a href="#">All</a></li>
+                                    <li><a href="#">Author</a></li>
+                                    <li><a href="#">Title</a></li>
+                                    <li><a href="#">Publisher</a></li>
+                                    <!--<li class="divider"></li> -- divider just incase--> 
+                                    <li><a href="#">Seller</a></li>
+                                </ul>
+                            </div><!-- /btn-group -->
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                </form>
+
+			</div> <!-- /.navbar-header-->
+		
+
+			<!-- Up-Right Corner's button, clickable and use for login/signup. TODO: add cart here too.-->
+	        <div id="navbar" class="navbar-collapse collapse">
+	          <form class="navbar-form navbar-right" role="form" >
+	            <button type="submit" class="btn btn-success" ng-click = "l.toggle()" >
+	            	<!-- Very interesting, when click on login/signup. it hide and back button show-->
+	            	<div ng-hide = "l.login_page" >Log in/Sign up</div>
+	            	<div ng-show = "l.login_page">Back</div>
+	            </button>
+	          </form>
+	        </div><!--/.navbar-collapse -->      
+	      </div><!-- /.container-->
+	    </nav><!-- Close: navbar-->
+
+
+		<br />
+		<br />
+		<br />
+
+		<div ng-show = "l.login_page"> <!-- Login_page -->
+		    <div class="container"> <!-- container for login_page -->
+		      <form class="form-signin" role="form"> <!-- form-->
+			<br/>
+		      	<h2 class="form-signin-heading">Please sign in</h2>
+		        <!--Input email for sign in -->
+		        <label for="inputEmail" class="sr-only">
+		        	Email address
+		        </label>
+		        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+				<!--Input password for sign in -->
+		        <label for="inputPassword" class="sr-only">
+		        	Password
+		        </label>
+		        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+		        <!-- Checkbox for remember sign in information. TODO: need functionality to support-->
+		        <div class="checkbox">
+		          <label>
+		            <input type="checkbox" value="remember-me"> 
+		            Remember me
+		          </label>
+		        </div>
+		        <!--Button for sign in -->
+		        <button class="btn btn-lg btn-primary btn-block" type="submit">
+		        	Sign in
+		        </button>
+		        <!--Button for Register a new account -->
+				<button class="btn btn-lg btn-primary btn-block" type="submit">
+					Sign up
+				</button>
+		      </form> <!--/form -->
+		    </div> <!-- /container -->
+		</div> <!-- /l.login_page -->
+
+
+	
+	
+			
+		<!-- NaviBar:Tab -->
+		<div ng-controller="NavTab as t" ng-hide = "l.login_page">
+			<!-- Tab List -->
+			<ul class="nav nav-tabs" role="tablist" >
+				<!-- L1: Home -->
+				<li ng-class="{active:t.isSelected(1)}" role="presentation">
+					<a href ng-click="t.setTab(1)"> Home </a>
+				</li>
+				<!-- L2: Buy Books -->
+				<li ng-class="{active:t.isSelected(2)}" role="presentation">
+					<a href ng-click="t.setTab(2)">	Buy Books </a>
+				</li>
+				<!-- L3: Sell a Book -->
+				<li ng-class="{active:t.isSelected(3)}" role ng-click="tabs.setTab(3)">
+					<a href ng-click="t.setTab(3)">	Sell a Book</a>
+				</li>
+				<!-- L4: I'm Feeling Lucky -->
+				<li ng-class="{active:t.isSelected(4)}" role="presentation">
+					<a href ng-click="t.setTab(4)">	I'm Feeling Lucky </a>
+				</li>
+				<!-- L5: Settings -->
+				<li ng-class="{active:t.isSelected(5)}" role="presentation">
+					<a href ng-click="t.setTab(5)">	Settings </a>
+				</li>
+
+			</ul>
+
+			<!-- Display all list containing material.  TODO: repeat loop through -->
+		    <div ng-show="t.isSelected(1)">
+		    	<h2> Top Rating</h2>
+			<div class="container">
+                        <div class="row">
+                            <div class="col-xs-2"> <!--this is the size of the box of the image--> 
+                                <a href="#" class="thumbnail">
+                                    <img src="this-image.jpg"  height = "150px" width = "150px"> <!--get image and size-->
+		                    <h4>Label</h4><!--this is meant to type the author's name--> 
+                                    <span class="text-muted">Something else</span> <!-- this is for genre etc.--> 
+                                </a>
+                            </div>
+                            <div class="col-xs-2">
+                                <a href="#" class="thumbnail">
+                                    <img src="this-image.jpg"  height = "150px" width = "150px">
+		                    <h4>Label</h4>
+                                    <span class="text-muted">Something else</span>
+                                </a>
+                           </div>
+                            <div class="col-xs-2">
+                                <a href="#" class="thumbnail">
+                                    <img src="this-image.jpg"  height = "150px" width = "150px">
+		                    <h4>Label</h4>
+                                    <span class="text-muted">Something else</span>
+                                </a>
+                           </div>
+                            <div class="col-xs-2">
+                                <a href="#" class="thumbnail">
+                                    <img src="this-image.jpg"  height = "150px" width = "150px">
+		                    <h4>Label</h4>
+                                    <span class="text-muted">Something else</span>
+                                </a>
+                           </div>
+                       </div>                       
+		    	</div>
+			<h2>Recommendations<h2/>
+		    </div>
+
+		    <div ng-show="t.isSelected(2)"> tab2 </div>
+		    <div ng-show="t.isSelected(3)"> tab3 </div>
+		    <div ng-show="t.isSelected(4)"> tab4 </div>
+		    <div ng-show="t.isSelected(5)"> tab5 </div>
+
+		</div>
+	</div>
+  </body>
+</html>
