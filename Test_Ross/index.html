@@ -51,35 +51,38 @@
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
 	      	<li><a href="#">Home</a></li>
-	        <li><span class="book"></span><a href="#">Buy a Book</a></li>
+	        <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="true">Buy a Book <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+              <li role="presentation"><a href="#">by Publish Date</a></li>
+              <li class="divider"></li>
+              <li role="presentation"><a href="#">by Price</a></li>
+              <li class="divider"></li>
+              <li role="presentation"><a href="#">by Publisher</a></li>
+          </ul>
+          </li>
 	        <li><a href="#">Sell a Book</a></li>
 	      </ul>
 	      
           <form class="navbar-form navbar-left" role="search">
 	        <div class="form-group">        
-                <input type="text" class="form-control" placeholder="Press 'Sumbit' for start Searching">
+                <input type="text" class="form-control" placeholder="Search a Book">
                 <button type="submit" class="btn btn-default" > <span class="glyphicon glyphicon-search" ></span></button>
 	        </div>
 	      </form>
           <form class="navbar-form navbar-right" role="setting">
-            <li>
             <button type="submit" class="btn btn-default" > 
                 <a href="#">
                 <span class="glyphicon glyphicon-shopping-cart"> cart </span>
                 </a>
             </button>
-            </li>
-            <li>
+
 	          <button type="submit" class="btn btn-default" > 
-                    <a href="login.html"><span class="glyphicon glyphicon-user"></span> Log In</a>
+                <a href="login.html"><span class="glyphicon glyphicon-user"></span> Log In</a><p>
             </button>
-            </li>
-            <li>
             <button type="submit" class="btn btn-default" > 
-	               <a href="#">Help <span class="glyphicon glyphicon-question-sign"></span></a>
+	               <a href="#"><span class="glyphicon glyphicon-question-sign"></span> Help </a>
             </button>
-            </li>
-                       </form> <!-- /.navbar-right-->
+          </form> <!-- /.navbar-right-->
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
@@ -89,8 +92,8 @@
                 <button type="submit" class="btn btn-default" ><span class="glyphicon glyphicon-cog"></span> setting </button>
               </a>
               <ul class="dropdown-menu" role="menu">
-                <p><a href="">Sign up</a></p>
-                <p><a href="">Sign up</a></p>
+                <p><a href="signUp.html">Sign up</a></p>
+                <p><a href="login.html">Log In</a></p>
                 <p><a href="">Sign up</a></p>
               </ul>
             </li>   
