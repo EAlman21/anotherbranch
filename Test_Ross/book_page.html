@@ -1,4 +1,4 @@
-
+<!--  
 <html>
   <head>
   	<title>
@@ -13,11 +13,11 @@
  
     <br />
   	<div>
-<!--  		TODO:: Query from db -->
     <br />
   	{{Book_Name}}
     <br />
-  	{{Book_Cover}}	{{Price}}{{Stock_Amount}}
+  	{{Book_Cover}}	
+    {{Price}}{{Stock_Amount}}
     <button class="btn btn-lg btn-primary btn-block" type="submit">
       Buy it
     </button>
@@ -26,5 +26,37 @@
 <br />
   	{{Customer_Comment @Book_Name}}
  	</div>
+  </body>
+</html>
+
+-->
+
+<html>
+  <head>
+    <title>
+      Game of Throne
+    </title>
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- TODO:: back to previous visit (Button) -->
+    </div>
+ 
+    
+    <div margin-top="10px">
+    <br />
+    {{Book_Name}}
+    <br />
+    {{Book_Cover}}  
+    {{Price}}{{Stock_Amount}}
+    <button class="btn btn-lg btn-primary btn-block" type="submit">
+      Buy it
+    </button>
+<br />
+    {{Book_Description}}
+<br />
+    {{Customer_Comment @Book_Name}}
+  </div>
   </body>
 </html>

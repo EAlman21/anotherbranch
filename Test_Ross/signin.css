@@ -1,7 +1,14 @@
+body {
+  background: #eee;  
+}
+
 .form-signin {
   max-width: 330px;
   padding: 15px;
-  margin: 0 auto;
+  margin: 20 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.1);  
+
 }
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
@@ -33,10 +40,12 @@
   border-top-right-radius: 0;
 }
 
-.site-search{
-  padding: 4px 20px 4px 8px;
-  width:50%;
-}
-.navbar nav{
-  color:red;
+
+.form-signup {
+  max-width: 330px;
+  padding: 15px;
+  margin: -10 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.1);  
+
 }
