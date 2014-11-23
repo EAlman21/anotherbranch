@@ -13,6 +13,8 @@ li{
 	display: inline;
 	float: left;
 }
-header{
-	background:#777;
+
+.btn{
+	float: left;
+	display: inline;
 }
