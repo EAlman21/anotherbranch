@@ -36,7 +36,7 @@
   <!-- Body-->
   <body>
 	<nav class="navbar navbar-default navbar-static-top" role="navigation">
-	  <div class="container-fluid">
+	  <div class="container">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
 	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -47,11 +47,11 @@
 	      </button>
 	      <a class="navbar-brand" href="#">Libros</a>
 	    </div>
-
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav">
 	      	<li><a href="#">Home</a></li>
-	        <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="true">Buy a Book <span class="caret"></span></a>
+	        
+          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="true">Buy a Book <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
               <li role="presentation"><a href="#">by Publish Date</a></li>
               <li class="divider"></li>
@@ -60,44 +60,42 @@
               <li role="presentation"><a href="#">by Publisher</a></li>
           </ul>
           </li>
-	        <li><a href="#">Sell a Book</a></li>
+	        
+          <li><a href="#">Sell a Book</a></li>
 	      </ul>
-	      
-          <form class="navbar-form navbar-left" role="search">
+
+        <form class="navbar-form navbar-left" role="search">
 	        <div class="form-group">        
                 <input type="text" class="form-control" placeholder="Search a Book">
                 <button type="submit" class="btn btn-default" > <span class="glyphicon glyphicon-search" ></span></button>
 	        </div>
-	      </form>
-          <form class="navbar-form navbar-right" role="setting">
-            <button type="submit" class="btn btn-default" > 
-                <a href="#">
-                <span class="glyphicon glyphicon-shopping-cart"> cart </span>
-                </a>
-            </button>
+	      </form><!-- /.navbar-left-->
 
-	          <button type="submit" class="btn btn-default" > 
-                <a href="login.html"><span class="glyphicon glyphicon-user"></span> Log In</a><p>
-            </button>
-            <button type="submit" class="btn btn-default" > 
-	               <a href="#"><span class="glyphicon glyphicon-question-sign"></span> Help </a>
-            </button>
-          </form> <!-- /.navbar-right-->
-	    </div><!-- /.navbar-collapse -->
+        <form class="navbar-form navbar-right" role="navigation">
+          <ul class="nav navbar-nav">              
+                <li><a href="#">
+                <span class="glyphicon glyphicon-shopping-cart"></span> cart  
+                </a></li>
+                <li><a href="login.html"><span class="glyphicon glyphicon-user"></span> Log In</a></li>
+
+                <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> Help </a></li>
+          </ul>            
+        </form> <!-- /.navbar-right-->
+  	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
-  <div class="container navbar-fixed-bottom">
-      <li role="presentation" class="dropup">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+  <nav class="container navbar-fixed-bottom">
+      <li role="presentation" class="dropup navbar-right">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="true">
                 <button type="submit" class="btn btn-default" ><span class="glyphicon glyphicon-cog"></span> setting </button>
               </a>
               <ul class="dropdown-menu" role="menu">
-                <p><a href="signUp.html">Sign up</a></p>
-                <p><a href="login.html">Log In</a></p>
+                <p><a href="login.html">log in</a></p>
+                <p><a href="">Sign up</a></p>
                 <p><a href="">Sign up</a></p>
               </ul>
-            </li>   
-  </div>
+      </li>   
+  </nav>
 	<div class="container" type="body">
        <!-- Display all list containing material.  TODO: while loop to query data -->
     <div class="panel panel-primary">
@@ -137,7 +135,7 @@
            </div>                       
       </div>
     </div>    
-	<div class="panel panel-danger">
+	  <div class="panel panel-danger">
       <div class="panel-heading">
         <h4> Top 6 Rating</h4>
       </div>
@@ -166,6 +164,7 @@
       </div>
     </div>
 
-    </div>
+  </div>
+  </div>
   </body>
 </html>
