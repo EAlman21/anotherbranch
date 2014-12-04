@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-
+	<link rel="icon" href="fluidicon.png" type="image/png">
     <script type="text/javascript" src="angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -35,7 +35,7 @@
 
   <!-- Body-->
   <body ng-app = "BookStoreApp" >
-	<div ng-controller = "TogglePage as l col-md-12">
+	<div ng-controller = "TogglePage as l "> <!--col-md-12 was the error-->
 
 	    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"> 
 	      <div class="container-fluid">
@@ -49,30 +49,28 @@
 	          </button>
 
 	          <a class="navbar-brand" href="#">BookBay</a>
-		<!--this defines the search bar-->	
-		<form action="" class="navbar-form navbar-left col-lg-4">	
-		    <div class="col-lg-6 col-xs-4"> <!--this expands the width of the search bar--> 
-				<div class="input-group col-lg-10">
-					<input type="text" class="form-control">
-					<div class="input-group-btn">
-	<!--defines the action for drop down search--> 
-						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Search <span class="caret"></span></button>
-						<ul class="dropdown-menu dropdown-menu-right" role="menu">
-							<li><a href="#">All</a></li>
-							<li><a href="#">Author</a></li>
-							<li><a href="#">Title</a></li>
-							<li><a href="#">Publisher</a></li>
-							<!--<li class="divider"></li> -- divider just incase--> 
-							<li><a href="#">Seller</a></li>
-						</ul>
-					</div><!-- /btn-group -->
-				</div><!-- /input-group -->
-			</div><!-- /.col-lg-6 -->
-		</form>
-
+			  <!--this defines the search bar-->	
+				<form action="" class="navbar-form navbar-left col-lg-4">	
+					<div class="col-lg-6 col-xs-4"> <!--this expands the width of the search bar--> 
+						<div class="input-group col-lg-10">
+							<input type="text" class="form-control">
+							<div class="input-group-btn">
+							<!--defines the action for drop down search--> 
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Search <span class="caret"></span></button>
+								<ul class="dropdown-menu dropdown-menu-right" role="menu">
+									<li><a href="#">All</a></li>
+									<li><a href="#">Author</a></li>
+									<li><a href="#">Title</a></li>
+									<li><a href="#">Publisher</a></li>
+									<!--<li class="divider"></li> -- divider just incase--> 
+									<li><a href="#">Seller</a></li>
+								</ul>
+							</div><!-- /btn-group -->
+						</div><!-- /input-group -->
+					</div><!-- /.col-lg-6 -->
+				</form>
 			</div> <!-- /.navbar-header-->
-		
-
+			
 			<!-- Up-Right Corner's button, clickable and use for login/signup. TODO: add cart here too.-->
 	        <div id="navbar" class="navbar-collapse collapse">
 	          <form class="navbar-form navbar-right col-lg-10" role="form" >
@@ -106,42 +104,132 @@
 		        </button>
 				</div>
 	          </form>
-	        </div><!--/.navbar-collapse -->      
+	        </div><!--/.navbar-collapse -->  
 	      </div><!-- /.container-->
 	    </nav><!-- Close: navbar-->
+		<br/>
+		<br/>
+		<br/>
+		
+		<!--<div class="l.login_page">--> <!-- Login_page -->
+		<div class="container col-lg-6"> <!-- container for login_page -->
+		<!-- NaviBar:Tab -->
+		<div ng-controller="NavTab as t">
+			<!-- Tab List -->
+			<ul class="nav nav-tabs" role="tablist" >
+				<!-- L1: Home -->
+				<li ng-class="{active:t.isSelected(1)}" role="presentation">
+					<a href ng-click="t.setTab(1)"> Home </a>
+				</li>
+				<!-- L2: Buy Books -->
+				<li ng-class="{active:t.isSelected(2)}" role="presentation">
+					<a href ng-click="t.setTab(2)">	Buy Books </a>
+				</li>
+				<!-- L3: Sell a Book -->
+				<li ng-class="{active:t.isSelected(3)}" role ng-click="tabs.setTab(3)">
+					<a href ng-click="t.setTab(3)">	Sell a Book</a>
+				</li>
+				<!-- L4: I'm Feeling Lucky -->
+				<li ng-class="{active:t.isSelected(4)}" role="presentation">
+					<a href ng-click="t.setTab(4)">	I'm Feeling Lucky </a>
+				</li>
+				<!-- L5: Settings -->
+				<li ng-class="{active:t.isSelected(5)}" role="presentation">
+					<a href ng-click="t.setTab(5)">	Settings </a>
+				</li>
 
+			</ul>
 
-		<br />
-		<br />
-		<br />
+			<!-- Display all list containing material.  TODO: repeat loop through -->
+		
+		    <div ng-show="t.isSelected(1)">
+		    	<h2> Top Rated</h2>
+			<div class="container">
+                        <div class="row">
+                            <div class="col-xs-2"> <!--this is the size of the box of the image--> 
+                                <a href="#" class="thumbnail">
+                                    <img src="recomendations/rec_book1.png"  height = "150px" width = "150px"> <!--get image and size-->
+		                    <h4>J.K. Rowling</h4><!--this is meant to type the author's name--> 
+                                    <span class="text-muted">Fantasy Fiction</span> <!-- this is for genre etc.--> 
+                                </a>
+                            </div>
+							<div class="col-xs-2"> <!--this is the size of the box of the image--> 
+                                <a href="#" class="thumbnail">
+                                    <img src="recomendations/rec_book2.png"  height = "150px" width = "150px"> <!--get image and size-->
+		                    <h4>J.K. Rowling</h4><!--this is meant to type the author's name--> 
+                                    <span class="text-muted">Fantasy Fiction</span> <!-- this is for genre etc.--> 
+                                </a>
+                            </div>
+                            <div class="col-xs-2"> <!--this is the size of the box of the image--> 
+                                <a href="#" class="thumbnail">
+                                    <img src="recomendations/rec_book3.png"  height = "150px" width = "150px"> <!--get image and size-->
+		                    <h4>J.K. Rowling</h4><!--this is meant to type the author's name--> 
+                                    <span class="text-muted">Fantasy Fiction</span> <!-- this is for genre etc.--> 
+                                </a>
+                            </div>
+                            <div class="col-xs-2"> <!--this is the size of the box of the image--> 
+                                <a href="#" class="thumbnail">
+                                    <img src="recomendations/rec_book4.png"  height = "150px" width = "150px"> <!--get image and size-->
+		                    <h4>J.K. Rowling</h4><!--this is meant to type the author's name--> 
+                                    <span class="text-muted">Fantasy Fiction</span> <!-- this is for genre etc.--> 
+                                </a>
+                            </div>
+							<div class="col-xs-2"> <!--this is the size of the box of the image--> 
+                                <a href="#" class="thumbnail">
+                                    <img src="recomendations/rec_book6.png"  height = "150px" width = "150px"> <!--get image and size-->
+		                    <h4>J.K. Rowling</h4><!--this is meant to type the author's name--> 
+                                    <span class="text-muted">Fantasy Fiction</span> <!-- this is for genre etc.--> 
+                                </a>
+                            </div>
+                       </div>                       
+		    	</div>
+			
+			<h2>Recommendations<h2/>
+		    </div>
 
-		<div ng-show = "l.login_page"> <!-- Login_page -->
-		    <div class="container col-lg-6"> <!-- container for login_page -->
-		      <form class="form-signin" role="form"> <!-- form-->
-			<br/>
-		      	<h2 class="form-signin-heading">Please Log In</h2>
-		        <!--Input email for sign in -->
-		        <label for="inputEmail" class="sr-only">
-		        	Email address
-		        </label>
-		        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-				<!--Input password for sign in -->
-		        <label for="inputPassword" class="sr-only">
-		        	Password
-		        </label>
-		        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-				<!-- Checkbox for remember sign in information. TODO: need functionality to support-->
-		        <div class="checkbox">
-		          <label>
-		            <input type="checkbox" value="remember-me"> 
-		            Remember me
-		          </label>
-		        </div>
-		        <!--Button for sign in -->
-		        <button class="btn btn-lg btn-primary btn-block" type="submit">
-		        	Log in
-		        </button>
-		      </form> <!--/form -->
+		    <div ng-show="t.isSelected(2)"> 
+				<a href="#">
+					<span class="glyphicon glyphicon-shopping-cart"></span> cart  
+                </a>
+			</div>
+		    <div ng-show="t.isSelected(3)">
+				<div class="panel panel-danger">
+				<div class="panel-heading"><h4> My List</h4></div>
+					<div class="panel-body">
+						<table class="table" padding:"8px">
+							<thead>  
+								<tr>
+									<th># </th>
+									<th>Title</th>
+									<th>Author</th>
+									<th>Description</th>
+									<th>Price($)</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td>
+									<td width="100px"> <a href="GoT.html">Game of Throne</a></td>
+									<td> Martin </td>
+									<td> blah blah </td>
+									<td> 50</td>
+									<td><button class="btn btn-lg btn-success btn-block glyphicon glyphicon-edit" type="submit">
+										</button>
+									</td>									
+									<td><button class="btn btn-lg btn-danger btn-block glyphicon glyphicon-remove" type="submit">
+										</button>
+									</td>
+								</tr>
+							</tbody>
+						</table>	    
+					</div>
+				</div>
+			</div>
+		    <div ng-show="t.isSelected(4)"> tab4 </div>
+		    <div ng-show="t.isSelected(5)"> tab5 </div>
+
+		</div>
+	</div>
 		    </div> <!-- /container -->
 			
 			<div class="container col-lg-6"> <!-- container for login_page -->
@@ -225,81 +313,7 @@
 				</button>
 		      </form> <!--/form -->
 		    </div> <!-- /container -->
-		</div>
-	
-	
+		</body>
+		</html>
+		
 			
-		<!-- NaviBar:Tab -->
-		<div ng-controller="NavTab as t" ng-hide = "l.login_page">
-			<!-- Tab List -->
-			<ul class="nav nav-tabs" role="tablist" >
-				<!-- L1: Home -->
-				<li ng-class="{active:t.isSelected(1)}" role="presentation">
-					<a href ng-click="t.setTab(1)"> Home </a>
-				</li>
-				<!-- L2: Buy Books -->
-				<li ng-class="{active:t.isSelected(2)}" role="presentation">
-					<a href ng-click="t.setTab(2)">	Buy Books </a>
-				</li>
-				<!-- L3: Sell a Book -->
-				<li ng-class="{active:t.isSelected(3)}" role ng-click="tabs.setTab(3)">
-					<a href ng-click="t.setTab(3)">	Sell a Book</a>
-				</li>
-				<!-- L4: I'm Feeling Lucky -->
-				<li ng-class="{active:t.isSelected(4)}" role="presentation">
-					<a href ng-click="t.setTab(4)">	I'm Feeling Lucky </a>
-				</li>
-				<!-- L5: Settings -->
-				<li ng-class="{active:t.isSelected(5)}" role="presentation">
-					<a href ng-click="t.setTab(5)">	Settings </a>
-				</li>
-
-			</ul>
-
-			<!-- Display all list containing material.  TODO: repeat loop through -->
-		    <div ng-show="t.isSelected(1)">
-		    	<h2> Top Rating</h2>
-			<div class="container">
-                        <div class="row">
-                            <div class="col-xs-2"> <!--this is the size of the box of the image--> 
-                                <a href="#" class="thumbnail">
-                                    <img src="this-image.jpg"  height = "150px" width = "150px"> <!--get image and size-->
-		                    <h4>Label</h4><!--this is meant to type the author's name--> 
-                                    <span class="text-muted">Something else</span> <!-- this is for genre etc.--> 
-                                </a>
-                            </div>
-                            <div class="col-xs-2">
-                                <a href="#" class="thumbnail">
-                                    <img src="this-image.jpg"  height = "150px" width = "150px">
-		                    <h4>Label</h4>
-                                    <span class="text-muted">Something else</span>
-                                </a>
-                           </div>
-                            <div class="col-xs-2">
-                                <a href="#" class="thumbnail">
-                                    <img src="this-image.jpg"  height = "150px" width = "150px">
-		                    <h4>Label</h4>
-                                    <span class="text-muted">Something else</span>
-                                </a>
-                           </div>
-                            <div class="col-xs-2">
-                                <a href="#" class="thumbnail">
-                                    <img src="this-image.jpg"  height = "150px" width = "150px">
-		                    <h4>Label</h4>
-                                    <span class="text-muted">Something else</span>
-                                </a>
-                           </div>
-                       </div>                       
-		    	</div>
-			<h2>Recommendations<h2/>
-		    </div>
-
-		    <div ng-show="t.isSelected(2)"> tab2 </div>
-		    <div ng-show="t.isSelected(3)"> tab3 </div>
-		    <div ng-show="t.isSelected(4)"> tab4 </div>
-		    <div ng-show="t.isSelected(5)"> tab5 </div>
-
-		</div>
-	</div>
-  </body>
-</html>
