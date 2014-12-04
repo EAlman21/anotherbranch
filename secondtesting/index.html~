@@ -34,8 +34,10 @@
   </head>
 
   <!-- Body-->
-  <body>
-	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <body ng-app = "BookStoreApp" ng-controller = "NavTab as t"> <!--this is new--> 
+
+  <!--this maybe needs to be moved in top of nav class--> 
+	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 	  <div class="container">
 	    <!-- Brand and toggle get grouped for better mobile display -->
 	    <div class="navbar-header">
@@ -46,64 +48,46 @@
 	        <span class="icon-bar"></span>
 	      </button>
 	      <a class="navbar-brand" href="#">Libros</a>
-	    </div>
+	    </div> <!--this is end of navbar-header-->
 
 	<!--Enmanuel's test-->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> <!--ng-controller = "PanelControl as panel"-->
-	      <ul class="nav navbar-nav">
-	      	<li><a href="#">Home</a></li><!--Panel 1--> 
-	        
-          <li role="presentation" class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="true">Buy a Book <span class="caret"></span></a><!--Panel 2--> 
-          <ul class="dropdown-menu" role="menu"><!--must define new controller-->
-              <li role="presentation"><a href="#">by Publish Date</a></li><!--Change Publish Date to Genre-->
-              <li class="divider"></li>
-              <li role="presentation"><a href="#">by Price</a></li><!--this is fine, database will handle prices in order--> 
-              <li class="divider"></li>
-              <li role="presentation"><a href="#">by Publisher</a></li> <!--Change Publish Date to Author-->
-          </ul>
-          </li>
-	        
-          <li><a href="#">Sell a Book</a></li><!--Panel 3-->
-	      </ul>
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav"> <!--ul 1-->
+	      	<li ng-class= "{active:t.isSelected(1)}"><a href ng-click="t.setTab(1)">Home</a></li><!--Panel 1--> 
+	        <li ng-class= "{active:t.isSelected(2)}"><a href ng-click="t.setTab(2)">Buy a Book</a></li><!--Panel 2 -->
+          	<li ng-class= "{active:t.isSelected(3)}"><a href ng-click="t.setTab(3)">Sell a Book</a></li><!--Panel 3-->
+	      </ul><!--ul 1 finishes-->
 
-        <form class="navbar-form navbar-left" role="search">
+		<!--this begins the search bar--> 
+	      <form class="navbar-form navbar-left" role="search">
 	        <div class="form-group">        
                 <input type="text" class="form-control" placeholder="Search a Book">
                 <button type="submit" class="btn btn-default" > <span class="glyphicon glyphicon-search" ></span></button>
 	        </div>
 	      </form><!-- /.navbar-left-->
+		<!--the search bar is done--> 
 
-        <form class="navbar-form navbar-right" role="navigation"> <!--panel 4-->
-          <ul class="nav navbar-nav">              
-                <li><a href="#">
-                <span class="glyphicon glyphicon-shopping-cart"></span> cart  
-                </a></li>
-                <li><a href="login.html"><span class="glyphicon glyphicon-user"></span> Log In</a></li> <!--panel 5-->
-
-                <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> Help </a></li> <!--panel 6-->
-          </ul>            
-        </form> <!-- /.navbar-right-->
-  	    </div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
+	      <form class="navbar-form navbar-right" role="navigation">
+		<ul class="nav navbar-nav">              
+                  <li ng-class= "{active:t.isSelected(4)}"><a href ng-click= "t.setTab(4)" ><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li> <!--panel 4-->
+                  <li><a href="login.html"><span class="glyphicon glyphicon-user"></span> Log In</a></li> <!--panel 5-->
+                  <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> Help </a></li> <!--panel 6-->
+	        </ul>            
+	     </form> <!-- /.navbar-right-->
+  	   </div><!-- /.navbar-collapse -->
+	 </div><!-- /.container -->
 	</nav>
-  <nav class="container navbar-fixed-bottom">
-      <li role="presentation" class="dropup navbar-right">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="true">
-                <button type="submit" class="btn btn-default" ><span class="glyphicon glyphicon-cog"></span> setting </button>
-              </a>
-              <ul class="dropdown-menu" role="menu">
-                <p><a href="login.html">log in</a></p>
-                <p><a href="">Sign up</a></p>
-                <p><a href="">Sign up</a></p><!--delete this line-->
-              </ul>
-      </li>   
-  </nav>
-	<div class="container" type="body">
+
+
+  <div class="container" type="body">
        <!-- Display all list containing material.  TODO: while loop to query data -->
+<div ng-show = "t.isSelected(1)">
     <div class="panel panel-primary">
+
       <div class="panel-heading">
         <h4>Recommendations</h4>
-      </div>
+      </div><!--panel-heading finished--> 
+
       <div class="panel-body">
             <div class="row">
                 <div class="col-xs-2"> <!--this is the size of the box of the image--> 
@@ -134,13 +118,15 @@
                         <span class="text-muted">Something else</span>
                     </a>
                </div>
-           </div>                       
-      </div>
-    </div>    
-	  <div class="panel panel-danger">
+           </div><!--class row done-->                        
+      </div><!--class panel-body--> 
+    </div> <!--panel primary finished--> 
+    
+   <div class="panel panel-danger">
       <div class="panel-heading">
         <h4> Top 6 Rating</h4>
-      </div>
+      </div><!--panel-heading finished-->
+
       <div class="panel-body">
             <table class="table" padding:"8px">
               <thead>  
@@ -156,17 +142,89 @@
                 
                 <tr>
                   <td> 1</td>
-                  <td width="100px"> <a href="GoT.html">  Game of Throne </a></td>
+                  <td width="100px"> <a href="GoT.html">  Game of Thrones </a></td>
                   <td> Martin </td>
                   <td> blah blah </td>
                   <td> 50</td>
                 </tr>
               </tbody>
             </table>	    
-      </div>
-    </div>
+      </div><!--panel-body finish-->
+   </div><!--panel-danger finish--> 
+  </div><!--t.isSelected(1)-->
 
-  </div>
-  </div>
+<div ng-show = "t.isSelected(2)" ng-controller="tabs as tab">
+		<ul class="nav nav-tabs" role="tablist" >
+			<li ng-class="{active:tab.isSelected(1)}" role="presentation">
+				<a href ng-click="tab.setTab(1)">
+					Price
+				</a>
+			</li>
+			<li ng-class="{active:tab.isSelected(2)}" role="presentation">
+				<a href ng-click="tab.setTab(2)">
+					Author
+				</a>
+			</li>
+			<li ng-class="{active:tab.isSelected(3)}" role ng-click="tabs.setTab(3)">
+				<a href ng-click="tab.setTab(3)">
+					Genre
+				</a>
+			</li>
+
+		</ul>
+</div><!--t.isSelected(2)-->
+
+<div ng-show = "t.isSelected(3)">
+	<div ng-controller="MyCtrl">
+		<input type="file" id="file" name="file"/>
+  		<br>
+  		<button ng-click="add()">Add</button>
+  		<p>{{data}}</p>
+	</div>
+
+	<div class="panel panel-success">
+
+      		<div class="panel-heading">
+        	  <h4>Your Current Books</h4>
+      		</div><!--panel-heading finished--> 
+
+	<div class="panel-body">
+            <div class="row">
+                <div class="col-xs-2"> <!--this is the size of the box of the image--> 
+                    <a href="#" class="thumbnail">
+                        <img src="this-image.jpg"  height = "150px" width = "150px"> <!--get image and size-->
+                <h4>Label</h4><!--this is meant to type the author's name--> 
+                        <span class="text-muted">Something else</span> <!-- this is for genre etc.--> 
+                    </a>
+                </div>
+                <div class="col-xs-2">
+                    <a href="#" class="thumbnail">
+                        <img src="this-image.jpg"  height = "150px" width = "150px">
+                <h4>Label</h4>
+                        <span class="text-muted">Something else</span>
+                    </a>
+               </div>
+                <div class="col-xs-2">
+                    <a href="#" class="thumbnail">
+                        <img src="this-image.jpg"  height = "150px" width = "150px">
+                <h4>Label</h4>
+                        <span class="text-muted">Something else</span>
+                    </a>
+               </div>
+                <div class="col-xs-2">
+                    <a href="#" class="thumbnail">
+                        <img src="this-image.jpg"  height = "150px" width = "150px">
+                <h4>Label</h4>
+                        <span class="text-muted">Something else</span>
+                    </a>
+               </div>
+	    </div><!--row done-->
+	</div><!--panel-body done-->
+</div><!--panel-success done-->
+</div><!--t.isSelected(3)-->
+
+<div ng-show = "t.isSelected(4)">the database must handle this section</div>
+</div>
+
   </body>
 </html>
