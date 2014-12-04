@@ -54,8 +54,8 @@
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav"> <!--ul 1-->
 	      	<li ng-class= "{active:t.isSelected(1)}"><a href ng-click="t.setTab(1)">Home</a></li><!--Panel 1--> 
-	        <li ng-class= "{active:t.isSelected(2)}"><a href ng-click="t.setTab(2)">Buy a Book</a></li><!--Panel 2 -->
-          	<li ng-class= "{active:t.isSelected(3)}"><a href ng-click="t.setTab(3)">Sell a Book</a></li><!--Panel 3-->
+	        <li ng-class= "{active:t.isSelected(2)}"><a href ng-click="t.setTab(2)"><span class="glyphicon glyphicon-usd"></span> Buy</a></li><!--Panel 2 -->
+          	<li ng-class= "{active:t.isSelected(3)}"><a href ng-click="t.setTab(3)"><span class="glyphicon glyphicon-plus"></span> Sell</a></li><!--Panel 3-->
 	      </ul><!--ul 1 finishes-->
 
 		<!--this begins the search bar--> 
@@ -70,8 +70,8 @@
 	      <form class="navbar-form navbar-right" role="navigation">
 		<ul class="nav navbar-nav">              
                   <li ng-class= "{active:t.isSelected(4)}"><a href ng-click= "t.setTab(4)" ><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li> <!--panel 4-->
-                  <li><a href="login.html"><span class="glyphicon glyphicon-user"></span> Log In</a></li> <!--panel 5-->
-                  <li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> Help </a></li> <!--panel 6-->
+                  <li><a href="login.html"><span class="glyphicon glyphicon-user"></span>Login</a></li> <!--panel 5-->
+                  <li ng-class= "{active:t.isSelected(6)}"><a href ng-click= "t.setTab(6)"><span class="glyphicon glyphicon-question-sign"></span> Help </a></li> <!--panel 6-->
 	        </ul>            
 	     </form> <!-- /.navbar-right-->
   	   </div><!-- /.navbar-collapse -->
@@ -81,7 +81,7 @@
 
   <div class="container" type="body">
        <!-- Display all list containing material.  TODO: while loop to query data -->
-<div ng-show = "t.isSelected(1)">
+<div ng-show = "t.isSelected(1)"> <!--ng-repeat can be used-->
     <div class="panel panel-primary">
 
       <div class="panel-heading">
@@ -172,6 +172,9 @@
 			</li>
 
 		</ul>
+<div ng-show = "tab.isSelected(1)">database must handle this one</div>
+<div ng-show = "tab.isSelected(2)">database must handle this two</div>
+<div ng-show = "tab.isSelected(3)">database must handle this three</div>
 </div><!--t.isSelected(2)-->
 
 <div ng-show = "t.isSelected(3)">
@@ -217,7 +220,7 @@
 </div><!--panel-success done-->
 </div><!--t.isSelected(3)-->
 
-<div ng-show = "t.isSelected(4)">the database must handle this section</div>
+<div ng-show = "t.isSelected(4)">the database must also handle this section</div>
 </div>
 
   </body>
